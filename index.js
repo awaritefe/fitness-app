@@ -4,15 +4,20 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv/config');
+// Import Routes
+const usersRoute = require('./routes/users');
+const authRoute = require('./routes/auth');
 
 // Middlewares
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
 
-// Import Routes
-const usersRoute = require('./routes/users');
 
+
+// App middleware
 app.use('/users', usersRoute);
+app.use('/api/user', authRoute);
 
 // ROUTES
 app.get('/', (req, res) => {

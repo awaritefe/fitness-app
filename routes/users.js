@@ -1,4 +1,4 @@
-const { Router } = require('express');
+const Router = require('express');
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
@@ -19,6 +19,7 @@ router.post('/', async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
+        password: req.body.password,
         phoneNumber: req.body.phoneNumber
     });
     try {
