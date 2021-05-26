@@ -49,9 +49,7 @@ const { registerValidation, loginValidation } = require('../validation')
 
             // create and assign a token
             const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRECT);
-            res.header('auth-token', token).send(token);
-
-            res.send('Loged In');
+            res.json({ access_token: token });
     });
 
 module.exports = router;
